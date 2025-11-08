@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flask App</title>
+  <style>
+    /* Base Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", "Segoe UI", sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #007bff, #6610f2);
+      color: #333;
+    }
+
+    .container {
+      background: #ffffff;
+      width: 90%;
+      max-width: 700px;
+      padding: 40px 50px;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+      transition: all 0.4s ease;
+      animation: fadeIn 1s ease;
+    }
+
+    .container:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      color: #222;
+      text-align: center;
+      margin-bottom: 20px;
+      background: linear-gradient(90deg, #007bff, #6610f2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .divider {
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(90deg, #007bff, #6610f2);
+      margin: 10px auto 30px;
+      border-radius: 2px;
+    }
+
+    p {
+      background-color: #f9f9f9;
+      border-left: 4px solid #007bff;
+      padding: 10px 15px;
+      margin-bottom: 10px;
+      border-radius: 6px;
+      color: #444;
+      font-size: 15px;
+      transition: all 0.3s ease;
+    }
+
+    p:hover {
+      background-color: #eef5ff;
+      transform: translateX(5px);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    input[type="text"] {
+      padding: 12px 15px;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    input[type="text"]:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+      outline: none;
+    }
+
+    input[type="submit"] {
+      background: linear-gradient(90deg, #007bff, #6610f2);
+      color: white;
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+    }
+
+    input[type="submit"]:active {
+      transform: translateY(0);
+      box-shadow: none;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 25px 30px;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Hello Dosto, Let's Build a 2-Tier Flask + MySQL App!</h1>
+    <div class="divider"></div>
+
+    {% for message in messages %}
+      <p>{{ message[0] }}</p>
+    {% endfor %}
+
+    <form action="/submit" method="post">
+      <input type="text" name="new_message" placeholder="Enter a new message" required />
+      <input type="submit" value="Submit" />
+    </form>
+  </div>
+</body>
+</html>

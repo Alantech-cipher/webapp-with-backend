@@ -1,0 +1,4 @@
+Flask>=2.0
+Flask-MySQLdb>=0.2
+requests>=2.26
+Werkzeug>=2.2
